@@ -10,12 +10,9 @@ HTTP_ACCEPT_LANGUAGE header when landing in the app, through a `before_filter`
 in your controllers. It then stores it in session for further configuration
 and reuse.
 
-The switching part comes with a simple helper `link_to_switch_locale(locale)`
-which accepts the same arguments than a normal link_to except from the route
-part.
-When used, this link will route to an internal controller action that just tries
-to switch the locale with the same filtering logic, ensuring locale is always
-an available one.
+To switch the current locale, you need to link to the engine root, it will
+handle to switch the locale with the same filtering logic than in the global
+`before_filter`, ensuring locale is always an available one.
 
 ## Installation
 
@@ -28,7 +25,7 @@ gem "locale_switch", :git => "git://github.com/vala/locale_switch"
 Then mount switch locale engine in your `config/routes.rb`
 
 ```ruby
-mount LocaleSwitch::Engine => "/switch-locale"
+mount LocaleSwitch::Engine => "/switch-locale", as: "switch_locale"
 ```
 
 ## Usage
@@ -44,10 +41,10 @@ Now you can use the helper somewhere in your views :
 ```erb
 <ul class="locales-list">
   <li <%= 'class="active"' if I18n.locale == :en %>>
-    <%= link_to_switch_locale "English" %>
+    <%= link_to "English", switch_locale.root_path(l: "en") %>
   </li>
   <li <%= 'class="active"' if I18n.locale == :fr %>>
-    <%= link_to_switch_locale "Français" %>
+    <%= link_to "Français", switch_locale.root_path(l: "fr") %>
   </li>
 </ul>
 ```
