@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  mount LocaleSwitch::Engine => "/locale_switch", as: "locale_switch"
+  root to: "home#index"
+
+  mount LocaleSwitch::Engine => "/locale_switch", as: "switch_locale"
 end

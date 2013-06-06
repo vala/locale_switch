@@ -1,0 +1,14 @@
+<h1>Locale Switch</h1>
+
+<ul>
+  <li>
+    <%= link_to "English", switch_locale.root_path(l: "en") %>
+  </li>
+  <li>
+    <%= link_to "Français", switch_locale.root_path(l: "fr") %>
+  </li>
+</ul>
+
+<div>
+  Current locale is : <%= I18n.locale %>
+</div>
