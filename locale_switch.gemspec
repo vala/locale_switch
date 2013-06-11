@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Small Rails engine to allow easy locale switching and handling in your app"
   s.description = "Small Rails engine to allow easy locale switching and handling in your app"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 3.2.13"
   # s.add_dependency "jquery-rails"
